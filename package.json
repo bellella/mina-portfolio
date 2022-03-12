@@ -2,9 +2,10 @@
   "name": "mina-portfolio",
   "version": "0.0.0",
   "scripts": {
+    "heroku-postinstall": "npm install && npm run build",
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview --port 5050",
+    "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
   "dependencies": {
