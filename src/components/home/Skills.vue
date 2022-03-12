@@ -8,8 +8,10 @@
       <div class="box_list">
         <div class="box_item" v-for="skill in skillList" :key="skill.title">
           <div class="inner">
-            <div class="icon">
-              <img :src="skill.iconImgUrl" :alt="skill.title" />
+            <div class="icons">
+              <div class="icon" v-for="img in skill.iconImages" :key="img">
+                <img :src="img" :alt="skill.title" />
+              </div>
             </div>
             <h4 class="title">{{ skill.title }}</h4>
             <p class="content" v-html="skill.content"></p>
@@ -26,32 +28,31 @@ export default {
     return {
       skillList: [
         {
-          iconImgUrl:
-            "https://w.namu.la/s/6f8695350c52d8a6f07a30787fdd07ed65e77e010c16732832924d0effa75207dccdd972b8c7f5b9e7077c006e48cadde42f66172c11432a3c92e4407b4fcfdc875405acd3f0e8b0a1fb0bc80022929ebf2f68f29f74050fc28d813d090d429f",
-          title: "HTML5",
+          iconImages: [
+            "src/assets/images/skills/vue.png",
+            "src/assets/images/skills/angular.png",
+          ],
+          title: "Vue, Angular",
           content:
-            "Made a couple of website out of Vue. Know how to interacte using components",
+            "I make websites using vue and angular yes sometimes react^^ but thes two are my main framework",
         },
         {
-          iconImgUrl:
-            "https://w.namu.la/s/6f8695350c52d8a6f07a30787fdd07ed65e77e010c16732832924d0effa75207dccdd972b8c7f5b9e7077c006e48cadde42f66172c11432a3c92e4407b4fcfdc875405acd3f0e8b0a1fb0bc80022929ebf2f68f29f74050fc28d813d090d429f",
+          iconImages: ["src/assets/images/skills/node.png"],
           title: "HTML5",
           content:
-            "Made a couple of website out of Vue. Know how to interacte using components",
+            "Using node js I make Restful server for websites usually back-office",
         },
         {
-          iconImgUrl:
-            "https://w.namu.la/s/6f8695350c52d8a6f07a30787fdd07ed65e77e010c16732832924d0effa75207dccdd972b8c7f5b9e7077c006e48cadde42f66172c11432a3c92e4407b4fcfdc875405acd3f0e8b0a1fb0bc80022929ebf2f68f29f74050fc28d813d090d429f",
-          title: "HTML5",
+          iconImages: ["src/assets/images/skills/html5.png", "src/assets/images/skills/sass.png"],
+          title: "HTML, CSS",
           content:
-            "Made a couple of website out of Vue. Know how to interacte using components",
+            "give best user experience considering all devices. Always stick to what desiners say",
         },
         {
-          iconImgUrl:
-            "https://w.namu.la/s/6f8695350c52d8a6f07a30787fdd07ed65e77e010c16732832924d0effa75207dccdd972b8c7f5b9e7077c006e48cadde42f66172c11432a3c92e4407b4fcfdc875405acd3f0e8b0a1fb0bc80022929ebf2f68f29f74050fc28d813d090d429f",
-          title: "HTML5",
+          iconImages: ["src/assets/images/skills/java.png", "src/assets/images/skills/springboot.png"],
+          title: "Java",
           content:
-            "Made a couple of website out of Vue. Know how to interacte using components",
+            "I also use kotlin for functional code",
         },
       ],
     };
@@ -85,14 +86,28 @@ export default {
         padding-bottom: 100%;
       }
       &:nth-child(odd) {
-        box-shadow:  7px 7px 4px #efd2e0,
-             -7px -7px 24px #ffe8f8;
+        box-shadow: 7px 7px 4px #efd2e0, -7px -7px 24px #ffe8f8;
         border-radius: 10px;
       }
       &:nth-child(even) {
         background: #fff;
         box-shadow: 10px 10px 30px rgb(0 0 0 / 10%);
         border-radius: 10px;
+      }
+      &:nth-child(1) {
+        .icons .icon:nth-child(1) {
+          padding: 8px;
+        }
+      }
+      &:nth-child(3) {
+        .icons .icon {
+          padding: 5px;
+        }
+      }
+            &:nth-child(4) {
+        .icons .icon:nth-child(2) {
+              padding: 15px 5px 5px 10px;
+        }
       }
       .inner {
         position: absolute;
@@ -103,9 +118,14 @@ export default {
           padding: 30px;
         }
       }
-      .icon {
-        width: 80px;
-        height: 80px;
+      .icons {
+        display: flex;
+        .icon {
+              display: flex;
+    align-items: center;
+          width: 80px;
+          height: 80px;
+        }
       }
       .title {
         font-weight: 600;

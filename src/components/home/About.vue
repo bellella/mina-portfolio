@@ -13,8 +13,13 @@
           />
         </div>
         <div class="text">
-          <p>4년차 개발자 Mina Choi 입니다. 프론트개발을 중점적으로 풀스택 개발을 하고있습니다.
-            현재 UN7QI3 개발자로 일하고있으며 이직생각 있습니다. 연락주세요.
+          <p>Hi I'm creative developer Mina Choi. I've been working as a full stack developer for about 3 years.
+I've been building websites from markup to server overall. 
+In current job, I'm responsible for back office and event pages and operation.
+Like I said I'm creative I like creativity and also clean code and reusibility.
+Building website is not my job it's my passion and love.
+I keep making and making and studying for my website career.
+
           </p>
         </div>
       </div>

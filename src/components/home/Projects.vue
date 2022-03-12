@@ -7,7 +7,7 @@
     <div class="pro_wrapper" ref="viewport">
       <div class="pro_list" ref="content">
         <div class="pro_item" v-for="pro in proList" :key="pro.title">
-          <img src="@/assets/cute.png" alt="" />
+          <img :src="pro.imgUrl" alt="" />
         </div>
       </div>
     </div>
@@ -22,22 +22,22 @@ export default {
     return {
       proList: [
         {
-          imgUrl: "assets/cute.png",
+          imgUrl: "src/assets/images/projects/project1.png",
           link: "",
           title: "1",
         },
         {
-          imgUrl: "assets/cute.png",
+          imgUrl: "src/assets/images/projects/project2.png",
           link: "",
           title: "2",
         },
         {
-          imgUrl: "assets/cute.png",
+          imgUrl: "src/assets/images/projects/project3.png",
           link: "",
           title: "3",
         },
         {
-          imgUrl: "assets/cute.pnga",
+          imgUrl: "src/assets/images/projects/project4.png",
           link: "",
           title: "4",
         },
@@ -76,10 +76,15 @@ export default {
   .pro_list {
     display: flex;
     width: fit-content;
-    padding-left: 300px;
+    padding-left: 10vw;
     .pro_item {
-      width: 500px;
+      height: 600px;
+      width: 350px;
       margin-right: 30px;
+      filter: grayscale(1);
+      &:hover {
+        filter: none;
+      }
     }
   }
 }
