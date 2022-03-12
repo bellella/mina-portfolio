@@ -1,0 +1,109 @@
+@font-face {
+  font-family: "tossface";
+  src: url("assets/TossFace.ttf") format("opentype");
+  font-weight: 400;
+}
+@import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300;400&display=swap');
+/*setting*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+
+
+body {
+  --bg-color: #fcddec;
+  --text-color: #03045e;
+  --text-sub-color: #e07f8c;
+  --danger-color: #f44336;
+  --container-max-width: 1230px;
+  --header-height: 70px;
+
+  font-family: "Poppins","Gowun dodum", sans-serif;
+  color: var(--text-color);
+  box-sizing: border-box;
+  --nm-in: inset 5px 5px 10px #eacedb,
+  inset -5px -5px 10px #ffecfd;
+  --nm-out: 7px 7px 14px #efd2e0,
+  -7px -7px 21px #ffe8f8;
+}
+button, input, textarea {
+  font-family: "Poppins", sans-serif;
+}
+img {
+  width: 100%;
+  height: auto;
+}
+button {
+  background: none;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+li,
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: 500;
+  line-height: 1.2;
+}
+[class*="grid"] {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.section_container {
+  padding: 0 4vw;
+  margin: 0 auto;
+  max-width: var(--container-max-width);
+  height: 100%;
+}
+.main_btn {
+  color: #e07f8c;
+  font-size: 20px;
+  line-height: 30px;
+  border: none;
+  border-radius: 10px;
+  padding: 16px 0;
+  width: 160px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+box-shadow:  var(--nm-out);
+  &:hover {
+    box-shadow: var(--nm-in);
+  }
+}
+
+
+
+.section_top {
+  padding-bottom: 100px;
+  .title {
+    font-weight: 800;
+    font-size: 36px;
+    text-align: center;
+  }
+  .sub_title {
+    background: linear-gradient(
+      180deg,
+      #f0afb9 0%,
+      #eeacb6 0.01%,
+      #e07f8c 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+    font-size: 24px;
+    text-align: center;
+  }
+}
