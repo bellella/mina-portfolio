@@ -13,11 +13,4 @@ export default defineConfig({
     }
   },
   assetsInclude: ['assets/scss/*.scss'],
-  build: {
-    rollupOptions: {
-      input: {
-        main: resolve(__dirname, 'src/index.html')
-      }
-    }
-  }
 });
