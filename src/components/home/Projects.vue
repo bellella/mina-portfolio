@@ -22,32 +22,32 @@ export default {
     return {
       proList: [
         {
-          imgUrl: "src/assets/images/projects/project1.png",
+          imgUrl: "/images/projects/project1.png",
           link: "",
           title: "1",
         },
         {
-          imgUrl: "src/assets/images/projects/project2.png",
+          imgUrl: "/images/projects/project2.png",
           link: "",
           title: "2",
         },
         {
-          imgUrl: "src/assets/images/projects/project3.png",
+          imgUrl: "/images/projects/project3.png",
           link: "",
           title: "3",
         },
         {
-          imgUrl: "src/assets/images/projects/project4.png",
+          imgUrl: "/images/projects/project4.png",
           link: "",
           title: "4",
         },
         {
-          imgUrl: "assets/cute.pnga",
+          imgUrl: "/images/cute.pnga",
           link: "",
           title: "4",
         },
         {
-          imgUrl: "assets/cute.pnga",
+          imgUrl: "/images/cute.pnga",
           link: "",
           title: "4",
         },
