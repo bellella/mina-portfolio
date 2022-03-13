@@ -77,10 +77,21 @@ export default {
     display: flex;
     width: fit-content;
     padding-left: 10vw;
+
+     @media (max-width: 970px) {
+       display: block;
+        column-count: 2;
+      column-gap: 20px;
+      padding: 5vw;
+      }
     .pro_item {
       height: 600px;
       width: 350px;
       margin-right: 30px;
+           @media (max-width: 970px) {
+        width: 100%;
+        height: auto;
+      }
       filter: grayscale(1);
       &:hover {
         filter: none;

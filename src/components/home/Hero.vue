@@ -38,31 +38,31 @@ export default {
       heroAnim: null,
       stickers: [
         {
-          imgUrl: "stickers/sticker1.png",
+          imgUrl: "/images/stickers/sticker1.png",
         },
         {
-          imgUrl: "/public/images/stickers/sticker2.png",
+          imgUrl: "/images/stickers/sticker2.png",
         },
         {
-          imgUrl: "/public/images/stickers/sticker3.png",
+          imgUrl: "/images/stickers/sticker3.png",
         },
         {
-          imgUrl: "/public/images/stickers/sticker4.png",
+          imgUrl: "/images/stickers/sticker4.png",
         },
         {
-          imgUrl: "/public/images/stickers/sticker5.png",
+          imgUrl: "/images/stickers/sticker5.png",
         },
         {
-          imgUrl: "/public/images/stickers/sticker1.png",
+          imgUrl: "/images/stickers/sticker1.png",
         },
         {
-          imgUrl: "/public/images/stickers/sticker2.png",
+          imgUrl: "/images/stickers/sticker2.png",
         },
         {
-          imgUrl: "/public/images/stickers/sticker3.png",
+          imgUrl: "/images/stickers/sticker3.png",
         },
         {
-          imgUrl: "/public/images/stickers/sticker4.png",
+          imgUrl: "/images/stickers/sticker4.png",
         },
       ],
       stickerShow: false,
