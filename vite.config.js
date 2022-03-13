@@ -1,6 +1,7 @@
 import { fileURLToPath, URL } from 'url'
 
 import { defineConfig } from 'vite'
+import { resolve } from 'path'
 import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
@@ -11,5 +12,12 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
-  assetsInclude: ['assets/scss/*.scss']
+  assetsInclude: ['assets/scss/*.scss'],
+  build: {
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'src/index.html')
+      }
+    }
+  }
 });
