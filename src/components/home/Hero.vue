@@ -38,31 +38,31 @@ export default {
       heroAnim: null,
       stickers: [
         {
-          imgUrl: "src/assets/images/stickers/sticker1.png",
+          imgUrl: "stickers/sticker1.png",
         },
         {
-          imgUrl: "src/assets/images/stickers/sticker2.png",
+          imgUrl: "/public/images/stickers/sticker2.png",
         },
         {
-          imgUrl: "src/assets/images/stickers/sticker3.png",
+          imgUrl: "/public/images/stickers/sticker3.png",
         },
         {
-          imgUrl: "src/assets/images/stickers/sticker4.png",
+          imgUrl: "/public/images/stickers/sticker4.png",
         },
         {
-          imgUrl: "src/assets/images/stickers/sticker5.png",
+          imgUrl: "/public/images/stickers/sticker5.png",
         },
         {
-          imgUrl: "src/assets/images/stickers/sticker1.png",
+          imgUrl: "/public/images/stickers/sticker1.png",
         },
         {
-          imgUrl: "src/assets/images/stickers/sticker2.png",
+          imgUrl: "/public/images/stickers/sticker2.png",
         },
         {
-          imgUrl: "src/assets/images/stickers/sticker3.png",
+          imgUrl: "/public/images/stickers/sticker3.png",
         },
         {
-          imgUrl: "src/assets/images/stickers/sticker4.png",
+          imgUrl: "/public/images/stickers/sticker4.png",
         },
       ],
       stickerShow: false,
@@ -143,35 +143,38 @@ export default {
 
 <style lang="scss" scoped>
 #hero_section {
-  height: calc(100vh - 100px);
+  height: 100vh;
+  padding-top: calc(var(--header-height));
   .hero_grid {
     //grid-gap: 30px;
     height: 100%;
     align-items: center;
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
+            @media (max-width: 970px) {
+          flex-wrap: wrap;
+          justify-content: center;
+    }
   }
   .text {
-    width: 500px;
     .title {
       font-weight: 800;
-      font-size: 80px;
+          font-size: clamp(50px, 8vw, 80px);
     }
     .top_sub_title {
       font-weight: 500;
-      font-size: 25px;
+      font-size: clamp(20px, 2.5vw, 25px);
       line-height: 42px;
       //color: var(--text-sub-color);
     }
     .sub_title {
       font-weight: 500;
-      font-size: 30px;
+          font-size: clamp(25px, 3vw, 30px);
       margin-top: 10px;
     }
     .description {
       color: var(--text-sub-color);
-      font-size: 20px;
+      font-size: clamp(18px, 2vw, 20px);
       margin-top: 10px;
     }
     .main_btn {
@@ -182,6 +185,7 @@ export default {
     max-width: 500px;
     img {
       cursor: pointer;
+    height: 100%;
     }
     &:hover {
           filter: drop-shadow(0 0 25px #fff);

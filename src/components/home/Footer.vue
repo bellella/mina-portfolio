@@ -5,13 +5,13 @@
     </div>
     <ul class="social_icon_list">
       <li class="social_icon_item">
-        <a href=""><img src="@/assets/images/instagram.png" /></a>
+        <a href=""><img src="/public/images/instagram.png" /></a>
       </li>
       <li class="social_icon_item">
-        <a href=""><img src="@/assets/images/github.png" /></a>
+        <a href=""><img src="/public/images/github.png" /></a>
       </li>
       <li class="social_icon_item">
-        <a href=""><img src="@/assets/images/linkedin.png" /></a>
+        <a href=""><img src="/public/images/linkedin.png" /></a>
       </li>
     </ul>
 

@@ -62,8 +62,9 @@ export default {
 <style lang="scss" scoped>
 #header {
   transition: all 0.5s ease;
-  position: sticky;
+  position: fixed;
   top: 0;
+      width: 100%;
   z-index: 2;
   color: var(--text-color);
   backdrop-filter: blur(4px);
@@ -81,7 +82,7 @@ export default {
     max-width: var(--container-max-width);
     padding: 0 10px;
     margin: 0 auto;
-    height: 80px;
+    height: calc(var(--header-height));
     font-size: 25px;
     .logo {
       font-weight: 600;

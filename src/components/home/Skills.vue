@@ -29,27 +29,27 @@ export default {
       skillList: [
         {
           iconImages: [
-            "src/assets/images/skills/vue.png",
-            "src/assets/images/skills/angular.png",
+            "/public/images/skills/vue.png",
+            "public/images/skills/angular.png",
           ],
           title: "Vue, Angular",
           content:
             "I make websites using vue and angular yes sometimes react^^ but thes two are my main framework",
         },
         {
-          iconImages: ["src/assets/images/skills/node.png"],
+          iconImages: ["/public/images/skills/node.png"],
           title: "HTML5",
           content:
             "Using node js I make Restful server for websites usually back-office",
         },
         {
-          iconImages: ["src/assets/images/skills/html5.png", "src/assets/images/skills/sass.png"],
+          iconImages: ["public/images/skills/html5.png", "/public/images/skills/sass.png"],
           title: "HTML, CSS",
           content:
             "give best user experience considering all devices. Always stick to what desiners say",
         },
         {
-          iconImages: ["src/assets/images/skills/java.png", "src/assets/images/skills/springboot.png"],
+          iconImages: ["public/images/skills/java.png", "/public/images/skills/springboot.png"],
           title: "Java",
           content:
             "I also use kotlin for functional code",
