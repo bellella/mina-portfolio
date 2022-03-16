@@ -60,6 +60,9 @@ h6 {
 [class*="grid"] {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  @media (max-width: 970px) {
+    grid-template-columns: 1fr;
+  }
 }
 .section_container {
   padding: 0 4vw;

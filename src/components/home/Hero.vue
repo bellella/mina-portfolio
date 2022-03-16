@@ -4,8 +4,7 @@
       <div class="hero_grid">
         <div class="text">
           <!-- <p class="top_sub_title">Hi🤩 I'm</p> -->
-          <p class="top_sub_title">{{ $t("message.hello") }}
-             저는</p>
+          <p class="top_sub_title">{{ $t("message.hello") }} 저는</p>
           <h1 class="title">Full stack Developer</h1>
           <h5 class="sub_title">Mina Choi</h5>
           <p class="description">I'm talented developer based in Korea.</p>
@@ -22,15 +21,20 @@
       </div>
     </div>
     <div class="stickers" ref="stickers" :class="{ show: stickerShow }">
-      <div v-for="(st, i) in stickers" :key="st.imgUrl" class="sticker" 
-      @click="clickSticker(i)" :class="{ hide: st.hide}">
+      <div
+        v-for="(st, i) in stickers"
+        :key="st.imgUrl"
+        class="sticker"
+        @click="clickSticker(i)"
+        :class="{ hide: st.hide }"
+      >
         <img :src="st.imgUrl" />
       </div>
     </div>
   </section>
 </template>
 <script>
-import anime from "animejs/lib/anime.es.js";
+import { gsap } from "gsap";
 
 export default {
   data() {
@@ -73,7 +77,7 @@ export default {
   },
   methods: {
     stickerSprinkle() {
-      if(this.stickerShow) {
+      if (this.stickerShow) {
         return;
       }
       this.stickerShow = true;
@@ -90,44 +94,17 @@ export default {
       });
     },
     setAnimation() {
-      this.heroAnim = anime({
-        targets: this.$refs.heroImg,
-        keyframes: [
-          { scaleX: 1, scaleY: 1 },
-          { scaleX: 1.25, scaleY: 0.75 },
-          { scaleX: 0.75, scaleY: 1.25 },
-          { scaleX: 1.15, scaleY: 0.85 },
-          { scaleX: 1.05, scaleY: 0.95, scaleZ: 1 },
-          { scaleX: 1, scaleY: 1 },
-        ],
-        duration: 500,
-        easing: "linear",
-      });
-      anime({
-        targets: ".function-based-values-demo .el",
-        translateX: function (el) {
-          return el.getAttribute("data-x");
+      this.heroAnim = gsap.to(this.$refs.heroImg, {
+        keyframes: {
+          "0%": { scaleX: 1, scaleY: 1 },
+          "30%": { scaleX: 1.25, scaleY: 0.75 },
+          "40%": { scaleX: 0.75, scaleY: 1.25 },
+          "50%": { scaleX: 1.15, scaleY: 0.85 },
+          "65%": { scaleX: 1.05, scaleY: 0.95 },
+          "75%": { scaleX: 1, scaleY: 1 },
+          "100%": { scaleX: 1.05, scaleY: 0.95 },
         },
-        translateY: function (el, i) {
-          return 50 + -50 * i;
-        },
-        scale: function (el, i, l) {
-          return l - i + 0.25;
-        },
-        rotate: function () {
-          return anime.random(-360, 360);
-        },
-        borderRadius: function () {
-          return ["50%", anime.random(10, 35) + "%"];
-        },
-        duration: function () {
-          return anime.random(1200, 1800);
-        },
-        delay: function () {
-          return anime.random(0, 400);
-        },
-        direction: "alternate",
-        loop: true,
+        duration: 1,
       });
     },
     startAnimation() {
@@ -136,30 +113,36 @@ export default {
     },
     clickSticker(i) {
       this.stickers[i].hide = true;
-    }
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
 #hero_section {
-  height: 100vh;
+  //height: 100vh;
   padding-top: calc(var(--header-height));
+  @media (max-width: 640px) {
+    min-height: 100vh;
+  }
+  .section_container {
+    padding: 10vw 4vw;
+  }
   .hero_grid {
     //grid-gap: 30px;
     height: 100%;
     align-items: center;
     display: flex;
     justify-content: space-between;
-            @media (max-width: 970px) {
-          flex-wrap: wrap;
-          justify-content: center;
+    @media (max-width: 640px) {
+      justify-content: center;
+      flex-flow: column;
     }
   }
   .text {
     .title {
       font-weight: 800;
-          font-size: clamp(50px, 8vw, 80px);
+      font-size: clamp(50px, 8vw, 80px);
     }
     .top_sub_title {
       font-weight: 500;
@@ -169,7 +152,7 @@ export default {
     }
     .sub_title {
       font-weight: 500;
-          font-size: clamp(25px, 3vw, 30px);
+      font-size: clamp(25px, 3vw, 30px);
       margin-top: 10px;
     }
     .description {
@@ -183,12 +166,15 @@ export default {
   }
   .image {
     max-width: 500px;
+    @media (max-width: 640px) {
+      max-width: 30vh;
+    }
     img {
       cursor: pointer;
-    height: 100%;
+      height: 100%;
     }
     &:hover {
-          filter: drop-shadow(0 0 25px #fff);
+      filter: drop-shadow(0 0 25px #fff);
     }
   }
   @keyframes jello {
@@ -240,9 +226,9 @@ export default {
       left: 0;
       transition: all 1s ease-in-out;
       cursor: pointer;
-          &.hide {
-      opacity: 0;
-    }
+      &.hide {
+        opacity: 0;
+      }
     }
   }
 }

@@ -23,15 +23,15 @@
 </template>
 
 <script>
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap } from "gsap";
+
 export default {
   data() {
     return {
       skillList: [
         {
-          iconImages: [
-            "/images/skills/vue.png",
-            "/images/skills/angular.png",
-          ],
+          iconImages: ["/images/skills/vue.png", "/images/skills/angular.png"],
           title: "Vue, Angular",
           content:
             "I make websites using vue and angular yes sometimes react^^ but thes two are my main framework",
@@ -49,13 +49,76 @@ export default {
             "give best user experience considering all devices. Always stick to what desiners say",
         },
         {
-          iconImages: ["/images/skills/java.png", "/images/skills/springboot.png"],
+          iconImages: [
+            "/images/skills/java.png",
+            "/images/skills/springboot.png",
+          ],
           title: "Java",
-          content:
-            "I also use kotlin for functional code",
+          content: "I also use kotlin for functional code",
         },
       ],
+      tl: null,
+      mobileAni: null,
     };
+  },
+  mounted() {
+    gsap.registerPlugin(ScrollTrigger);
+    this.setScrollAnimation();
+    window.addEventListener("resize", () => {
+      console.log(screen)
+      this.setScrollAnimation();
+    });
+  },
+  methods: {
+    setScrollAnimation() {
+      if(this.tl) {
+        this.tl.kill();
+      }
+      if(this.mobileAni) {
+        this.mobileAni.kill();
+      }
+      if (screen.width > 500) {
+        this.setAni();
+      } else {
+        this.setMobileAni();
+      }
+    },
+    setAni() {
+      let tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#skill_section",
+          start: "top 35%",
+          end: "top 100%",
+          scrub: 3,
+          duration: 6,
+        },
+      });
+      gsap.utils.toArray(".box_item").forEach((elem, i) => {
+        const isOdd = i % 2 === 0;
+        const number = 100;
+        const percent = isOdd ? number * -1 : number;
+        tl = tl.from(
+          elem,
+          { xPercent: percent, yPercent: percent, autoAlpha: 0, ease: "power4.out" },
+          "<+=25%"
+        );
+        this.tl = tl;
+      });
+    },
+    setMobileAni() {
+      this.mobileAni = gsap.utils.toArray(".box_item").forEach((elem, i) => {
+                const isOdd = i % 2 === 0;
+        const number = 100;
+        const percent = isOdd ? number * -1 : number;
+        ScrollTrigger.create({
+          trigger: elem,
+          scrub: 3,
+          onEnter: () => {
+            gsap.from(elem, { autoAlpha: 0, xPercent: percent, ease: "power4.out" });
+          }
+        });
+      });
+    }
   },
 };
 </script>
@@ -104,9 +167,9 @@ export default {
           padding: 5px;
         }
       }
-            &:nth-child(4) {
+      &:nth-child(4) {
         .icons .icon:nth-child(2) {
-              padding: 15px 5px 5px 10px;
+          padding: 15px 5px 5px 10px;
         }
       }
       .inner {
@@ -121,8 +184,8 @@ export default {
       .icons {
         display: flex;
         .icon {
-              display: flex;
-    align-items: center;
+          display: flex;
+          align-items: center;
           width: 80px;
           height: 80px;
         }

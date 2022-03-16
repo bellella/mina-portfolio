@@ -6,7 +6,7 @@
       <About></About>
       <Skills></Skills>
       <Projects></Projects>
-      <Major></Major>
+      <!-- <Major></Major> -->
       <Contact></Contact>
             <Footer></Footer>
     </main>
@@ -42,18 +42,6 @@ export default {
 #home {
   background: var(--bg-color);
   overflow: hidden;
-}
-#about_section {
-  padding: 30px 0 150px;
-  .about_grid {
-    margin-top: 10px;
-    grid-gap: 60px;
-    .text {
-      padding-top: 90px;
-      font-size: 24px;
-      line-height: 44px;
-    }
-  }
 }
 
 </style>

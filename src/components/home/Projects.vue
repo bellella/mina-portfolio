@@ -1,15 +1,23 @@
 <template>
   <section id="project_section">
+    <div class="section_container">
     <div class="section_top">
-      <h3 class="title">about</h3>
-      <h4 class="sub_title">heheheheh</h4>
+      <h3 class="title">projects</h3>
+      <h4 class="sub_title">Scroll it !(if you want)</h4>
     </div>
-    <div class="pro_wrapper" ref="viewport">
-      <div class="pro_list" ref="content">
+    <div class="pro_wrapper">
+      <div class="pro_list">
+        <div class="pro_item" ref="viewport">
+          <img src="/images/projects/project1.png" ref="content"/>
+        </div>
         <div class="pro_item" v-for="pro in proList" :key="pro.title">
           <img :src="pro.imgUrl" alt="" />
         </div>
+                <div class="pro_item" v-for="pro in proList" :key="pro.title+1">
+          <img :src="pro.imgUrl" alt="" />
+        </div>
       </div>
+    </div>
     </div>
   </section>
 </template>
@@ -41,16 +49,6 @@ export default {
           link: "",
           title: "4",
         },
-        {
-          imgUrl: "/images/cute.pnga",
-          link: "",
-          title: "4",
-        },
-        {
-          imgUrl: "/images/cute.pnga",
-          link: "",
-          title: "4",
-        },
       ],
     };
   },
@@ -59,7 +57,7 @@ export default {
       viewport: this.$refs.viewport,
       scrollMode: "transform",
       content: this.$refs.content,
-      direction: "horizontal",
+      direction: "vertical",
     });
   },
 };
@@ -75,21 +73,16 @@ export default {
   }
   .pro_list {
     display: flex;
-    width: fit-content;
-    padding-left: 10vw;
-
-     @media (max-width: 970px) {
-       display: block;
-        column-count: 2;
-      column-gap: 20px;
-      padding: 5vw;
-      }
+    flex-wrap: wrap;
+    //justify-content: center;
+    //grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     .pro_item {
-      height: 600px;
-      width: 350px;
-      margin-right: 30px;
-           @media (max-width: 970px) {
-        width: 100%;
+      //max-width: 350px;
+      width: 25%;
+      aspect-ratio: 1/1;
+      overflow: hidden;      
+           @media (max-width: 640px) {
+        width: 50%;
         height: auto;
       }
       filter: grayscale(1);
