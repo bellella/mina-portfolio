@@ -23,6 +23,9 @@ import Major from "@/components/home/Major.vue"
 import Footer from "@/components/home/Footer.vue"
 import Contact from "@/components/home/Contact.vue"
 
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { gsap } from "gsap"
+
 export default {
   components: {
     Header,
@@ -34,6 +37,12 @@ export default {
     Footer,
     Contact
   },
+  created() {
+    this.$i18n.locale = 'en';
+        gsap.registerPlugin(ScrollTrigger);
+  },
+  mounted() {
+  }
 };
 </script>
 

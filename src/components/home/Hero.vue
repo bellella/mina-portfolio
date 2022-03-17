@@ -6,8 +6,8 @@
           <!-- <p class="top_sub_title">Hi🤩 I'm</p> -->
           <p class="top_sub_title">{{ $t("message.hello") }} 저는</p>
           <h1 class="title">Full stack Developer</h1>
-          <h5 class="sub_title">Mina Choi</h5>
-          <p class="description">I'm talented developer based in Korea.</p>
+          <h5 class="sub_title">Mina Choi 입니다</h5>
+          <p class="description">아름다운 웹사이트를 만들고싶습니다</p>
           <button class="main_btn">contact me</button>
         </div>
         <div class="image">

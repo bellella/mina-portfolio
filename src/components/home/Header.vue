@@ -10,11 +10,11 @@
         <li class="nav_item"><a href="">contact</a></li>
       </ul>
       <ul class="lang_list">
-        <li class="lang_item" @click.prevent="changeLocale">
-          <a href="">EN</a>
+        <li class="lang_item">
+          <a href="javascript:;" @click="changeLocale('en')">EN</a>
         </li>
         <li class="lang_item">
-          <a href="">KO</a>
+          <a href="javascript:;" @click="changeLocale('ko')">KO</a>
         </li>
       </ul>
       <AsideNav></AsideNav>
@@ -54,7 +54,9 @@ export default {
     toggleMobileNav() {
       this.mobileNavShow = !this.mobileNavShow;
     },
-    changeLocale() {},
+    changeLocale(lang) {
+      this.$i18n.locale = lang;
+    },
   },
 };
 </script>

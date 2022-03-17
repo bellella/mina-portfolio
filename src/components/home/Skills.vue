@@ -62,19 +62,18 @@ export default {
     };
   },
   mounted() {
-    gsap.registerPlugin(ScrollTrigger);
     this.setScrollAnimation();
     window.addEventListener("resize", () => {
-      console.log(screen)
+      console.log(screen);
       this.setScrollAnimation();
     });
   },
   methods: {
     setScrollAnimation() {
-      if(this.tl) {
+      if (this.tl) {
         this.tl.kill();
       }
-      if(this.mobileAni) {
+      if (this.mobileAni) {
         this.mobileAni.kill();
       }
       if (screen.width > 500) {
@@ -99,7 +98,12 @@ export default {
         const percent = isOdd ? number * -1 : number;
         tl = tl.from(
           elem,
-          { xPercent: percent, yPercent: percent, autoAlpha: 0, ease: "power4.out" },
+          {
+            xPercent: percent,
+            yPercent: percent,
+            autoAlpha: 0,
+            ease: "power4.out",
+          },
           "<+=25%"
         );
         this.tl = tl;
@@ -107,18 +111,22 @@ export default {
     },
     setMobileAni() {
       this.mobileAni = gsap.utils.toArray(".box_item").forEach((elem, i) => {
-                const isOdd = i % 2 === 0;
+        const isOdd = i % 2 === 0;
         const number = 100;
         const percent = isOdd ? number * -1 : number;
         ScrollTrigger.create({
           trigger: elem,
           scrub: 3,
           onEnter: () => {
-            gsap.from(elem, { autoAlpha: 0, xPercent: percent, ease: "power4.out" });
-          }
+            gsap.from(elem, {
+              autoAlpha: 0,
+              xPercent: percent,
+              ease: "power4.out",
+            });
+          },
         });
       });
-    }
+    },
   },
 };
 </script>
