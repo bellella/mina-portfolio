@@ -58,38 +58,33 @@ export default {
         },
       ],
       tl: null,
-      mobileAni: null,
+      mobileAni: [],
     };
   },
   mounted() {
     this.setScrollAnimation();
-    window.addEventListener("resize", () => {
-      console.log(screen);
-      this.setScrollAnimation();
-    });
+    // window.addEventListener("resize", () => {
+    //   this.setScrollAnimation();
+    // });
   },
   methods: {
     setScrollAnimation() {
-      if (this.tl) {
-        this.tl.kill();
-      }
-      if (this.mobileAni) {
-        this.mobileAni.kill();
-      }
-      if (screen.width > 500) {
-        this.setAni();
+      const browserWidth = document.documentElement.clientWidth;
+      if (browserWidth > 500) {
+          this.setAni();
       } else {
-        this.setMobileAni();
+          this.setMobileAni();
       }
     },
     setAni() {
       let tl = gsap.timeline({
         scrollTrigger: {
           trigger: "#skill_section",
-          start: "top 35%",
+          start: "top 40%",
           end: "top 100%",
-          scrub: 3,
-          duration: 6,
+          scrub: 5,
+          duration: 10,
+          fastScrollEnd: 3000
         },
       });
       gsap.utils.toArray(".box_item").forEach((elem, i) => {
@@ -99,8 +94,8 @@ export default {
         tl = tl.from(
           elem,
           {
-            xPercent: percent,
-            yPercent: percent,
+            xPercent: () => percent,
+            yPercent: () => percent,
             autoAlpha: 0,
             ease: "power4.out",
           },
@@ -110,20 +105,22 @@ export default {
       });
     },
     setMobileAni() {
-      this.mobileAni = gsap.utils.toArray(".box_item").forEach((elem, i) => {
+      gsap.utils.toArray(".box_item").forEach((elem, i) => {
         const isOdd = i % 2 === 0;
         const number = 100;
         const percent = isOdd ? number * -1 : number;
-        ScrollTrigger.create({
+        this.mobileAni = ScrollTrigger.create({
           trigger: elem,
           scrub: 3,
           onEnter: () => {
+            console.log(123);
             gsap.from(elem, {
               autoAlpha: 0,
-              xPercent: percent,
+              xPercent: () => percent,
               ease: "power4.out",
             });
           },
+          
         });
       });
     },

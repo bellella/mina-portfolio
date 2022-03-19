@@ -14,18 +14,18 @@
           <div id="threeScene" class="threeScene" ref="threeScene"></div>
         </div>
         <div class="text">
-          <p>안녕하세요 저는 창의적인 개발자 Mina Choi 입니다.</p>
+          <p>Fullstack 개발자 Mina Choi 입니다😍</p>
           <p>
-            현재 fullstack 으로써 일하고있고 직업에 너무나 만족하고 있는
+            현재 fullstack 으로써 일하고있고 직업에 너무나 <span class="high">만족하고</span> 있는
             중입니다.
           </p>
           <p>
-            backend는 주로 node를 다루고 있고 frontend는 Vue, Angular, React
-            모두 경험이 있으나 Vue와 Angular를 사용한 프로젝트 경험이 압도적으로
-            많은편입니다.
+            backend는 주로 node를 다루고 있고
+            frontend는 Vue, Angular, React 모두 경험이 있으나 Vue와 Angular를
+            사용한 프로젝트 경험이 압도적으로 많은편입니다.
           </p>
           <p>
-            웹사이트를 만드는 것을 좋아하고 여러가지 시도를 해보는 것도
+            <span class="high">웹사이트를 만드는 것을 좋아하고</span> 여러가지 시도를 해보는 것도
             좋아합니다. 그리고 만들고 싶은 웹사이트는 유저경험을 극대화 할수있는
             그리고 심미적인 웹사이트입니다. 개발 시에 가장 중요하게 생각하는
             것은 재사용성입니다.(지금 떠오르는 것은..?)
@@ -82,8 +82,8 @@ export default {
   methods: {
     setScroll() {
       ScrollTrigger.create({
-        trigger: this.$refs.ScrollTrigger,
-        start: "top -50%",
+        trigger: this.$refs.aboutSection,
+        start: "top center",
         onEnter: () => {
           this.isIn = true;
         },
@@ -165,7 +165,7 @@ export default {
     },
     render(time) {
       this.threes.forEach((t) => t.render());
-      if(this.isIn) {
+      if (this.isIn) {
         this.animateObj(time);
       }
       requestAnimationFrame(this.render);
@@ -197,6 +197,22 @@ export default {
     .text {
       font-size: 17px;
       line-height: 2.2;
+      z-index: 1;
+      .high {
+        position: relative;
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -3px;
+          left: 0;
+          height: 50%;
+          width: 100%;
+          background: var(--text-sub-color);
+          z-index: -1;
+          opacity: 0.6;
+          transform: skew(0deg, 1.5deg);
+        }
+      }
     }
   }
 }

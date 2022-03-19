@@ -30,6 +30,24 @@
       >
         <img :src="st.imgUrl" />
       </div>
+      <div
+        v-for="(st, i) in stickers"
+        :key="st.imgUrl"
+        class="sticker"
+        @click="clickSticker(i)"
+        :class="{ hide: st.hide }"
+      >
+        <img :src="st.imgUrl" />
+      </div>
+      <div
+        v-for="(st, i) in stickers"
+        :key="st.imgUrl"
+        class="sticker"
+        @click="clickSticker(i)"
+        :class="{ hide: st.hide }"
+      >
+        <img :src="st.imgUrl" />
+      </div>
     </div>
   </section>
 </template>
@@ -81,9 +99,8 @@ export default {
         return;
       }
       this.stickerShow = true;
-      this.stickers.forEach((s, i) => {
-        let st = document.getElementsByClassName("sticker")[i];
-        const halfX = screen.width / 2;
+      document.querySelectorAll(".sticker").forEach(st => {
+                const halfX = screen.width / 2;
         const halfY = screen.height / 2;
         const maxX = document.body.offsetWidth - halfX;
         const maxY = document.body.offsetHeight - halfY;
@@ -91,7 +108,18 @@ export default {
         const x = Math.random() * (maxX + halfX) - halfX;
         const y = Math.random() * (maxY + halfY) - halfY;
         st.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
-      });
+      })
+      // this.stickers.forEach((s, i) => {
+      //   let st = document.getElementsByClassName("sticker")[i];
+      //   const halfX = screen.width / 2;
+      //   const halfY = screen.height / 2;
+      //   const maxX = document.body.offsetWidth - halfX;
+      //   const maxY = document.body.offsetHeight - halfY;
+      //   const scale = Math.random() * 1 + 1;
+      //   const x = Math.random() * (maxX + halfX) - halfX;
+      //   const y = Math.random() * (maxY + halfY) - halfY;
+      //   st.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
+      // });
     },
     setAnimation() {
       this.heroAnim = gsap.to(this.$refs.heroImg, {
@@ -122,8 +150,10 @@ export default {
 #hero_section {
   //height: 100vh;
   padding-top: calc(var(--header-height));
-  @media (max-width: 640px) {
-    min-height: 100vh;
+      min-height: 100vh;
+  @media (min-width: 970px) {
+      display: flex;
+    align-items: center;
   }
   .section_container {
     padding: 10vw 4vw;
@@ -175,36 +205,6 @@ export default {
     }
     &:hover {
       filter: drop-shadow(0 0 25px #fff);
-    }
-  }
-  @keyframes jello {
-    0% {
-      -webkit-transform: scale3d(1, 1, 1);
-      transform: scale3d(1, 1, 1);
-    }
-    30% {
-      -webkit-transform: scale3d(1.25, 0.75, 1);
-      transform: scale3d(1.25, 0.75, 1);
-    }
-    40% {
-      -webkit-transform: scale3d(0.75, 1.25, 1);
-      transform: scale3d(0.75, 1.25, 1);
-    }
-    50% {
-      -webkit-transform: scale3d(1.15, 0.85, 1);
-      transform: scale3d(1.15, 0.85, 1);
-    }
-    65% {
-      -webkit-transform: scale3d(0.95, 1.05, 1);
-      transform: scale3d(0.95, 1.05, 1);
-    }
-    75% {
-      -webkit-transform: scale3d(1.05, 0.95, 1);
-      transform: scale3d(1.05, 0.95, 1);
-    }
-    100% {
-      -webkit-transform: scale3d(1, 1, 1);
-      transform: scale3d(1, 1, 1);
     }
   }
   .stickers {
